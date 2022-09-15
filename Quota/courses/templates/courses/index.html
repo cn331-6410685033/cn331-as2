@@ -1,8 +1,17 @@
 {% extends 'courses/layout.html' %}
 {% block body %}
 
-<h1 style="color:gold" ALIGN="CENTER">Welcome</h1>
-<h2 ALIGN="CENTER">Register for a course</h2>
+<h1 style="color:rgb(30, 255, 0)" ALIGN="CENTER">Welcome</h1>
+<h2 style="color:rgb(255, 0, 225)" ALIGN="CENTER">Register for a course
+    <img src = "pic_book.jpg" width="47" height="55" >
+</h2>
+<style>
+    body {
+      background-image: url('backgrond1.jpg');
+    }
+</style>
+
+    
     <ul>
     {% for course in courses %}
         <li>
