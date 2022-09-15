@@ -1,3 +1,11 @@
 ADMIN
 user: admin
 password: admin1234
+
+POND
+user: Pond
+password: Ironman1234
+
+EARTH
+user: Earth
+password: Ironman1234
