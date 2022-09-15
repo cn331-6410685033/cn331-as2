@@ -4,5 +4,4 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("<str:course_code>", views.course, name="course"),
-    path("<str:course_code>/enroll", views.enroll, name="enroll"),
 ]

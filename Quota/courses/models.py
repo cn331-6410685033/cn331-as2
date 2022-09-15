@@ -9,11 +9,3 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.code}: {self.name}"
-
-class Student(models.Model):
-    first = models.CharField(max_length=64)
-    last = models.CharField(max_length=64)
-    courses = models.ManyToManyField(Course, blank=True, related_name="student")
-
-    def __str__(self):
-        return f"{self.first} {self.last}"
