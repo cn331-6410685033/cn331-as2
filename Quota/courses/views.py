@@ -8,8 +8,8 @@ def index(request):
         "courses": Course.objects.all()
     })
 
-def course(request, course_id):
-    course = Course.objects.get(pk=course_id)
+def course(request, course_code):
+    course = Course.objects.get(code=course_code)
     return render(request, "courses/course.html", {
         "course": course,
     })
