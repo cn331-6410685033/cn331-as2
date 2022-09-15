@@ -33,13 +33,11 @@
     {% endfor %}
     </ul>
 
-<h2>Students</h2>
-<ul>
+    <h2>Students</h2>
+    <ul>
     {% for student in students %}
         <li>
-            <a>
-                {{ student.id }}: {{ student.first }} {{ student.last}}
-            </a>
+            {{ student}}
         </li>
 
     {% empty %}
@@ -47,6 +45,5 @@
 
     {% endfor %}
     </ul>
-    
 
 {% endblock %}
