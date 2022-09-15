@@ -1,5 +1,16 @@
 {% extends 'courses/layout.html' %}
 {% block body %}
+
 <h1>Courses</h1>
+    <ul>
+    {% for course in courses %}
+        <li>{{ course }}</li>
+
+    {% empty %}
+        <li>No Course.</li>
+
+    {% endfor %}
+    </ul>
+    
 
 {% endblock %}
