@@ -1,6 +1,16 @@
 {% extends 'users/layout.html' %}
 {% block body %}
 <h1>Welcome, {{ request.user.first_name }}</h1>
+
+<style>
+    body {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGhRwc7hy7qnff-E2ekiVXwatQg62_NvbWeVVUX8XYmZ5Mq3GPbqIT3nD16rycFhG0yO4&usqp=CAU');
+      background-position: left;
+      background-size: contain;
+      background-repeat: repeat-x;
+    }
+</style>
+
 <ul>
     <li>Username: {{ request.user.username }}</li>
     <li>Email: {{ request.user.email }}</li>
