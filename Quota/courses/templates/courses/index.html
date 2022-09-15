@@ -5,7 +5,11 @@
 <h2 ALIGN="CENTER">Register for a course</h2>
     <ul>
     {% for course in courses %}
-        <li>{{ course }}</li>
+        <li>
+            <a href="{% url 'course' course.code %}">
+                Course {{ course.code }}: {{ course.name }}
+            </a>
+        </li>
 
     {% empty %}
         <li>No Course.</li>
