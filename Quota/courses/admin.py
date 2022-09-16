@@ -4,7 +4,7 @@ from .models import Course, Student
 # Register your models here.
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ("id", "code", "name")
+    list_display = ("code", "name", "year", "semester", "all_seat", "quota")
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Student)

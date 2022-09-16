@@ -1,11 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
+
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
