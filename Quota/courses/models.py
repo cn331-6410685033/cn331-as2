@@ -14,7 +14,7 @@ class Course(models.Model):
     name = models.CharField("Course Name",max_length=64)
     year = models.IntegerField(null=True)
     semester = models.IntegerField(default=1)
-    all_seat = models.IntegerField(null=True)
+    max_seat = models.IntegerField(null=True)
     quota = models.BooleanField("Available",default=True)
     student= models.ManyToManyField(Student, blank=True, related_name='students')
 

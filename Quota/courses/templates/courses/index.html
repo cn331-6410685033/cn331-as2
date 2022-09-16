@@ -32,8 +32,8 @@
     <tr>
         <th>Course Code</th>
         <th>Course Name</th>
-        <th>Available Seat</th>
-        <th>Enroll</th>
+        <th>Max Seat</th>
+        <th></th>
     </tr>
 
     <!--Table Data-->
@@ -41,7 +41,8 @@
     <tr>
         <td><a href="{% url 'course' course.code %}">{{ course.code }}</a></td>
         <td>{{ course.name }}</td>
-        <td>{{ course.all_seat }}</td>
+        <td>{{ course.max_seat }}</td>
+        <td><input type="submit" value="enroll"></td>
     </tr>
     {% empty %}
     <h3>No Course.</h3>
