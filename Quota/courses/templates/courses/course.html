@@ -1,11 +1,40 @@
 {% extends 'courses/layout.html' %}
 {% block body %}
-    <h1>Welcome to {{ course }}</h1>
+<style>
+    body {
+        background-image: url('https://p4.wallpaperbetter.com/wallpaper/48/906/494/heaven-wallpaper-preview.jpg');
+        background-position: unset;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+    <h1 style="color: red;">Welcome to {{ course }}</h1>
     <ul>
         <li>Course code: {{ course.code }}</li>
         <li>Course name: {{ course.name }}</li>
         <li>Seat Available: {{ course.seat }}</li>
     </ul>
+
+    <h2>Students</h2>
+    <ul>
+        {% for students in student %}
+        <li>{{ students }}</li>
+        {% empty %}
+        <li>No student.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Student</h2>
+
+    <form action="{% url 'book' course.id %}" method="post">
+        {% csrf_token %}
+    <select name="student">
+        {% for student in nonstudent %}
+        <option value="{{ student.id }}">{{ student }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Add Student">
+    </form>
     
     <a href="{% url 'courses' %}"> Back to Course Page </a>
 {% endblock %}

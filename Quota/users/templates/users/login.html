@@ -1,6 +1,14 @@
 {% extends 'users/layout.html' %}
 {% block body %}
-<h1>Welcome to Courses Registeration.</h1>
+<style>
+    body {
+        background-image: url('https://p4.wallpaperbetter.com/wallpaper/425/965/165/saturn-4k-hd-high-wallpaper-preview.jpg');
+        background-position: unset;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+<h1 style="color: white;">Welcome to Courses Registeration.</h1>
     {% if message %}
         <div style="color:red ;">{{ message }}</div>
     {% endif %}
