@@ -34,18 +34,6 @@
     </form>
     {% endif %}
     <br>
-
-    <!-- <h2>Add Student</h2>
-
-    <form action="{% url 'enroll' course.id %}" method="post">
-        {% csrf_token %}
-    <select name="student">
-        {% for student in nonstudent %}
-        <option value="{{ student.id }}">{{ student }}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Add Student">
-    </form> -->
     
     <a href="{% url 'courses' %}"> Back to Course Page </a>
 {% endblock %}
