@@ -31,12 +31,14 @@
 
     <!--Table Data-->
     {% for course in courses %}
+    {% if request.user in course.students.all %}
     <tr>
         <td><a href="{% url 'course' course.code %}">{{ course.code }}</a></td>
         <td>{{ course.name }}</td>
         <td>{{ course.max_seat }}</td>
         <td></td>
     </tr>
+    {% endif %}
     {% empty %}
     <h3>No Course.</h3>
     {% endfor %}
