@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.models import User
+from ssl import AlertDescription
 from .models import Course
 
 # Create your views here.
@@ -20,9 +20,13 @@ def course(request, course_code):
     })
 
 def enroll(request, course_code):
-    if request.method == "POST":
-        course = Course.objects.get(pk=course_code)
-        student = User.objects.get(pk=request.POST['students'])
-        course.students.add(student)
-        return HttpResponseRedirect(reverse('course'))
-
+    course = Course.objects.get(code=course_code)
+    if course.quota:
+        course.students.add(request.user)
+        course.total_seat = course.students.count()
+        if course.total_seat == course.max_seat:
+            course.quota = False
+        course.save()
+    else :
+        AlertDescription("This course is unavailable!")
+    return HttpResponseRedirect(reverse('my_courses'))
