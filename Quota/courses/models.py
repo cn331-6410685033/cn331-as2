@@ -14,3 +14,6 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.code}: {self.name}"
+
+class User(models.Model):
+    courses = models.ManyToManyField(Course, blank=True, related_name="student")

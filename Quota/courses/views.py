@@ -1,8 +1,8 @@
-from audioop import reverse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .models import Course, Student
 from django.urls import reverse
+from django.contrib.auth.models import User
+from .models import Course
 
 # Create your views here.
 
@@ -15,14 +15,14 @@ def course(request, course_code):
     course = Course.objects.get(code=course_code)
     return render(request, "courses/course.html", {
         "course": course,
-        "students": course.student.all(),
-        "nostudents": Student.objects.exclude(students=course).all(),
+        "students": course.students.all(),
+        #"nostudents": User.objects.exclude(students=course).all(),
     })
 
 def book(request, course_code):
     if request.method == "POST":
         course = Course.objects.get(pk=course_code)
-        student = Student.objects.get(pk=request.POST['students'])
-        course.student.add(student)
+        student = User.objects.get(pk=request.POST['students'])
+        course.students.add(student)
         return HttpResponseRedirect(reverse('course', args=(course_code,)))
 
