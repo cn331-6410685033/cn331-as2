@@ -6,7 +6,7 @@
 - ธนภัทร สาระธรรม 6410685140
 
 ## **Link**
-- [Video How to use page](https://tuipied.sharepoint.com/:v:/s/Pond728/EdVG26hiNllNmShNvdREa68Bmr9n6YaMHjmvFqx36F16yA?e=7NiBMm)
+- [Video How to use page](https://tuipied.sharepoint.com/:v:/s/Pond728/EdVG26hiNllNmShNvdREa68Bmr9n6YaMHjmvFqx36F16yA?e=7NiBMm) (Please login with Thammasat's Account)
 - [GitHub repo url](https://github.com/cn331-6410685033/cn331-as2.git)
 
 ## **Web Details**
