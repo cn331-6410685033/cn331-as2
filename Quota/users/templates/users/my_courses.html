@@ -29,7 +29,7 @@
     <tr style="color:blue;">
         <th>Course Code</th>
         <th>Course Name</th>
-        <th>Max Seat</th>
+        <th>Enroll Students</th>
         <th>Withdraw</th>
     </tr>
 
@@ -39,7 +39,7 @@
     <tr>
         <td><a href="{% url 'course' course.code %}">{{ course.code }}</a></td>
         <td>{{ course.name }}</td>
-        <td>{{ course.max_seat }}</td>
+        <td>{{ course.students.count }}/{{ course.max_seat }}</td>
         <td>
             <form action="{% url 'withdraw' course.code %}" method="POST">
                 {% csrf_token %}

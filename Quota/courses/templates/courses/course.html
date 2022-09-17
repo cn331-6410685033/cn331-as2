@@ -12,7 +12,7 @@
     <ul>
         <li>Course code: {{ course.code }}</li>
         <li>Course name: {{ course.name }}</li>
-        <li>Seat Available: {{ course.max_seat }}</li>
+        <li>Enroll Students: {{ course.students.count }}/{{ course.max_seat }}</li>
     </ul>
 
     {% if user.is_staff %}
@@ -35,5 +35,5 @@
     {% endif %}
     <br>
     
-    <a href="{% url 'courses' %}"> Back to Course Page </a>
+    <a href="{% url 'index' %}">Home</a>
 {% endblock %}
