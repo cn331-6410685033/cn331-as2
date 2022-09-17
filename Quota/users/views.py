@@ -50,6 +50,6 @@ def withdraw(request, course_code):
         course.students.remove(request.user)
         course.total_seat = course.students.count()
         if course.total_seat != course.max_seat:
-            course.quota = True
+            course.quota_seat = True
     course.save()
     return HttpResponseRedirect(reverse('my_courses'))

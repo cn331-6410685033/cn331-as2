@@ -11,6 +11,7 @@ class Course(models.Model):
     max_seat = models.IntegerField(null=True)
     total_seat = models.IntegerField(default=0)
     quota = models.BooleanField("Available",default=True)
+    quota_seat = models.BooleanField("Seat Available",default=True)
     students= models.ManyToManyField(User, blank=True, related_name="courses")
 
     def __str__(self):

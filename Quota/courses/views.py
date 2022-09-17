@@ -26,11 +26,11 @@ def course(request, course_code):
 
 def enroll(request, course_code):
     course = Course.objects.get(code=course_code)
-    if course.quota:
+    if (course.quota) and (course.quota_seat):
         course.students.add(request.user)
         course.total_seat = course.students.count()
         if course.total_seat == course.max_seat:
-            course.quota = False
+            course.quota_seat = False
         course.save()
     else :
         AlertDescription("This course is unavailable!")

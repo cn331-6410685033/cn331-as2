@@ -44,7 +44,7 @@
         <td>{{ course.name }}</td>
         <td>{{ course.max_seat }}</td>
         <td>
-            {% if course.quota %}
+            {% if course.quota and course.quota_seat %}
             <p>&#9989;</p>
             {% else %}
             <p>&#9940;</p>

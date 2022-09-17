@@ -25,7 +25,7 @@
     </ul>
 
     <br>
-    {% if course.quota %}
+    {% if course.quota and course.quota_seat %}
     <form action="{% url 'enroll' course.code %}" method="POST">
         {% csrf_token %}
         <input type="submit" value="enroll">
