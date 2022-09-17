@@ -21,7 +21,6 @@ def course(request, course_code):
     return render(request, "courses/course.html", {
         "course": course,
         "students": course.students.all(),
-        #"nostudents": User.objects.exclude(students=course).all(),
     })
 
 def enroll(request, course_code):
