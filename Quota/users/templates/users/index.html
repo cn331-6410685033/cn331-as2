@@ -16,6 +16,8 @@
     <li>Email: {{ request.user.email }}</li>
 </ul>
 
+<a href="{% url 'my_courses' %}">My Courses</a>
+<br>
 <a href="{% url 'courses' %}">Available Courses</a>
 <br>
 <a href="{% url 'logout' %}">Log out</a>

@@ -19,10 +19,10 @@ def course(request, course_code):
         #"nostudents": User.objects.exclude(students=course).all(),
     })
 
-def book(request, course_code):
+def enroll(request, course_code):
     if request.method == "POST":
         course = Course.objects.get(pk=course_code)
         student = User.objects.get(pk=request.POST['students'])
         course.students.add(student)
-        return HttpResponseRedirect(reverse('course', args=(course_code,)))
+        return HttpResponseRedirect(reverse('course'))
 

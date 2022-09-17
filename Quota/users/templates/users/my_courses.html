@@ -1,12 +1,6 @@
-{% extends 'courses/layout.html' %}
+{% extends 'users/layout.html' %}
 {% block body %}
 <style>
-    body {
-        background-image: url('https://i.pinimg.com/550x/2a/a9/f0/2aa9f0f2139e0f4a6b1061b42f0ccdef.jpg');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
 
     h1 {
         color: rgb(30, 255, 0);
@@ -24,8 +18,7 @@
     }
 </style>
 
-<h1>Welcome</h1>
-<h2>Register for a course</h2>
+<h1>My Courses</h1>
 
 <table>
     <!--Table Head-->
@@ -51,6 +44,4 @@
 
 <br>
 <a href="{% url 'index' %}">Home</a>
-
-
 {% endblock %}

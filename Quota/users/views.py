@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, models
+
+from courses.models import Course
 
 # Create your views here.
 
@@ -33,3 +35,11 @@ def logout_view(request):
 
 def courses(request):
     return render(request)
+
+def my_courses(request):
+    courses = Course.objects.all()
+    users = models.User.objects.all()
+    return render(request, 'users/my_courses.html', {
+        "users":users,
+        "courses":courses
+    })

@@ -17,16 +17,23 @@
 
     <h2>Students</h2>
     <ul>
-        {% for students in student %}
-        <li>{{ students }}</li>
+        {% for student in students %}
+        <li>{{ student.id }}: {{ student.first_name }} {{ student.last_name }}</li>
         {% empty %}
         <li>No student.</li>
         {% endfor %}
     </ul>
 
-    <h2>Add Student</h2>
+    <br>
+    <form action="{% url 'enroll' course.code %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="enroll">
+    </form>
+    <br>
 
-    <form action="{% url 'book' course.id %}" method="post">
+    <!-- <h2>Add Student</h2>
+
+    <form action="{% url 'enroll' course.id %}" method="post">
         {% csrf_token %}
     <select name="student">
         {% for student in nonstudent %}
@@ -34,7 +41,7 @@
         {% endfor %}
     </select>
     <input type="submit" value="Add Student">
-    </form>
+    </form> -->
     
     <a href="{% url 'courses' %}"> Back to Course Page </a>
 {% endblock %}
