@@ -10,7 +10,7 @@ class Course(models.Model):
     semester = models.IntegerField(default=1)
     max_seat = models.IntegerField(null=True)
     quota = models.BooleanField("Available",default=True)
-    student= models.ManyToManyField(User, blank=True)
+    students= models.ManyToManyField(User, blank=True, related_name="courses")
 
     def __str__(self):
         return f"{self.code}: {self.name}"
