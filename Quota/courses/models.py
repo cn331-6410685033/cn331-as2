@@ -9,11 +9,9 @@ class Course(models.Model):
     year = models.IntegerField(null=True)
     semester = models.IntegerField(default=1)
     max_seat = models.IntegerField(null=True)
+    total_seat = models.IntegerField(default=0)
     quota = models.BooleanField("Available",default=True)
     students= models.ManyToManyField(User, blank=True, related_name="courses")
 
     def __str__(self):
         return f"{self.code}: {self.name}"
-
-class User(models.Model):
-    courses = models.ManyToManyField(Course, blank=True, related_name="student")
