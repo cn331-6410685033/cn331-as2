@@ -42,7 +42,13 @@
         <td><a href="{% url 'course' course.code %}">{{ course.code }}</a></td>
         <td>{{ course.name }}</td>
         <td>{{ course.max_seat }}</td>
-        <td></td>
+        <td>
+            {% if course.quota %}
+            <p>&#9989;</p>
+            {% else %}
+            <p>&#9940;</p>
+            {% endif %}
+        </td>
     </tr>
     {% empty %}
     <h3>No Course.</h3>

@@ -25,10 +25,12 @@
     </ul>
 
     <br>
+    {% if course.quota %}
     <form action="{% url 'enroll' course.code %}" method="POST">
         {% csrf_token %}
         <input type="submit" value="enroll">
     </form>
+    {% endif %}
     <br>
 
     <!-- <h2>Add Student</h2>
