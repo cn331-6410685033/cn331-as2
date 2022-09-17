@@ -11,6 +11,11 @@ def index(request):
         "courses": Course.objects.all()
     })
 
+def all_courses(request):
+    return render(request, "courses/all_courses.html", {
+        "courses": Course.objects.all()
+    })
+
 def course(request, course_code):
     course = Course.objects.get(code=course_code)
     return render(request, "courses/course.html", {
