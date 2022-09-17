@@ -43,3 +43,13 @@ def my_courses(request):
         "users":users,
         "courses":courses
     })
+
+def withdraw(request, course_code):
+    course = Course.objects.get(code=course_code)
+    if request.user in course.students.all():
+        course.students.remove(request.user)
+        course.total_seat = course.students.count()
+        if course.total_seat != course.max_seat:
+            course.quota = True
+    course.save()
+    return HttpResponseRedirect(reverse('my_courses'))
