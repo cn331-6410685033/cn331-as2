@@ -11,5 +11,5 @@ jobs:
           pip3 install --user -r requirements.txt
           python3 Quota/manage.py makemigrations
           python3 Quota/manage.py migrate
-          coverage run --source='.' manage.py test
+          coverage run --source='.' Quota/manage.py test
           coverage report
