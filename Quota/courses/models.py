@@ -18,4 +18,4 @@ class Course(models.Model):
         return f"{self.code}: {self.name}"
 
     def is_seat_available(self):
-        return self.total_seat < self.max_seat
+        return self.students.count() < self.max_seat
