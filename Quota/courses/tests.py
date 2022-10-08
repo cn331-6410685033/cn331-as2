@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Course
+from courses import views
 
 # Create your tests here.
 
@@ -24,8 +25,9 @@ class CoursesTestCase(TestCase):
         course = Course.objects.first()
         course.students.add(student1)
         course.students.add(student2)
+        # course.refresh_from_db()
 
-        self.assertTrue(course.is_seat_available())
+        self.assertFalse(course.is_seat_available())
 
     def test_to_string(self):
         course = Course.objects.get(code="CN101")

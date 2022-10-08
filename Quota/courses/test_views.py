@@ -27,10 +27,9 @@ class CoursesViewTestCase(TestCase):
         response = c.get(reverse('courses'))
         self.assertEqual(response.context['courses'].count(), 1)
 
-    def test_valid_allcourses_page(self):
-        """ valid all_courses page should return status code 200 """
+    def test_allcourses_page(self):
+        """ all_courses page should return status code 200 """
 
         c = Client()
-        course = Course.objects.all()
-        response = c.get(reverse('courses:all_course'))
+        response = c.get(reverse('all_courses'))
         self.assertEqual(response.status_code, 200)
