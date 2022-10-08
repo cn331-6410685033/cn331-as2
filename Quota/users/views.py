@@ -33,9 +33,6 @@ def logout_view(request):
         'message': 'Logged out'
     })
 
-def courses(request):
-    return render(request)
-
 def my_courses(request):
     courses = Course.objects.all()
     users = models.User.objects.all()
