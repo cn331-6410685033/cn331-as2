@@ -8,7 +8,7 @@ class CoursesTestCase(TestCase):
 
     def setUp(self):
         #create courses
-        course1 = Course.objects.create(code="CN101", name="Python", max_seat=3)
+        course1 = Course.objects.create(code="CN101", name="Python", max_seat=2)
 
     def test_seat_available(self):
         # is_seat_available should be True
@@ -20,13 +20,10 @@ class CoursesTestCase(TestCase):
         # is_seat_available should be False
         student1 = User.objects.create_user(username="student1")
         student2 = User.objects.create_user(username="student2")
-        student3 = User.objects.create_user(username="student3")
 
         course = Course.objects.first()
         course.students.add(student1)
         course.students.add(student2)
-        course.students.add(student3)
-
 
         self.assertTrue(course.is_seat_available())
 
