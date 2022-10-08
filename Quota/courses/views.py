@@ -31,6 +31,4 @@ def enroll(request, course_code):
         if course.total_seat == course.max_seat:
             course.quota_seat = False
         course.save()
-    else :
-        AlertDescription("This course is unavailable!")
     return HttpResponseRedirect(reverse('my_courses'))

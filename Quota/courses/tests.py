@@ -12,10 +12,11 @@ class CoursesTestCase(TestCase):
         course1 = Course.objects.create(code="CN101", name="Python", max_seat=2)
 
     def test_seat_available(self):
-        # is_seat_available should be True
+        # is_seat_available and quota_seat should be True
         course = Course.objects.first()
+        check = course.is_seat_available() and course.quota_seat
 
-        self.assertTrue(course.is_seat_available())
+        self.assertTrue(check)
 
     def test_seat_not_available(self):
         # is_seat_available should be False
@@ -27,7 +28,9 @@ class CoursesTestCase(TestCase):
         course.students.add(student2)
         # course.refresh_from_db()
 
-        self.assertFalse(course.is_seat_available())
+        check = course.is_seat_available() and course.quota_seat
+
+        self.assertFalse(check)
 
     def test_to_string(self):
         course = Course.objects.get(code="CN101")
