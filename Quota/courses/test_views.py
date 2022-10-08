@@ -66,8 +66,8 @@ class CoursesViewTestCase(TestCase):
 
     def test_enroll_unavailable(self):
         # Add student to course that make course fulled.
-        course = Course.objects.first()
         self.client.login(username="student1", password="Ironman1234")
+        course = Course.objects.first()
         self.client.post(reverse('enroll', args=(course.code,)))
 
         # now student in course is 1 (unavailable), that mean it can't enroll anymore
